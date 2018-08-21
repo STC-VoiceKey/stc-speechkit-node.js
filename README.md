@@ -1,0 +1,1 @@
+# stc-speechkit-node.js
