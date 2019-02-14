@@ -22,10 +22,10 @@
     module.exports = factory(require('superagent'), require('querystring'));
   } else {
     // Browser globals (root is window)
-    if (!root.AsrDocumentation) {
-      root.AsrDocumentation = {};
+    if (!root.SessionServiceDocumentation) {
+      root.SessionServiceDocumentation = {};
     }
-    root.AsrDocumentation.ApiClient = factory(root.superagent, root.querystring);
+    root.SessionServiceDocumentation.ApiClient = factory(root.superagent, root.querystring);
   }
 }(this, function(superagent, querystring) {
   'use strict';
@@ -48,7 +48,7 @@
      * @type {String}
      * @default http://localhost/vkasr/rest
      */
-    this.basePath = 'http://localhost/vkasr/rest'.replace(/\/+$/, '');
+    this.basePath = 'https://cp.speechpro.com'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
@@ -410,6 +410,7 @@
         queryParams['_'] = new Date().getTime();
     }
     request.query(this.normalizeParams(queryParams));
+
 
     // set header parameters
     request.set(this.defaultHeaders).set(this.normalizeParams(headerParams));
